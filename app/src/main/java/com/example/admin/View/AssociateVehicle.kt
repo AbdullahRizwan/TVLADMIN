@@ -1,15 +1,18 @@
 package com.example.admin.View
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.admin.Model.Vehicle
 import com.example.admin.R
 import com.example.admin.ViewModel.AssociateVehicleViewModel
 
 
-class AssociateVehicle : AppCompatActivity() {
+class AssociateVehicle : AppCompatActivity(), VehicleCustomAdapter.OnClickListener {
 
     private lateinit var viewModel: AssociateVehicleViewModel
 
@@ -18,13 +21,29 @@ class AssociateVehicle : AppCompatActivity() {
         setContentView(R.layout.activity_associate_vehicle)
 
         var recyclerView = findViewById<RecyclerView>(R.id.recyclerViewVehicle)
+        val recyclerViewAdapter = VehicleCustomAdapter()
         viewModel = AssociateVehicleViewModel()
         viewModel.data.observe(this@AssociateVehicle, Observer {
-            val recyclerViewAdapter = VehicleCustomAdapter()
-            recyclerViewAdapter.setData(viewModel.data)
+
+            recyclerViewAdapter.setData(viewModel.data,this.applicationContext,this)
             recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.adapter = recyclerViewAdapter
         })
-        var i=1
+
+        var searchView = findViewById<SearchView>(R.id.searchVehicle)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(s: String): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(s: String): Boolean {
+                recyclerViewAdapter.filter.filter(s)
+                return true
+            }
+        })
+    }
+
+    override fun onVehicleClick(vehicle: Vehicle) {
+        Log.d("Poistion", ""+ vehicle.make)
     }
 }
