@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.admin.Model.Admin
 import com.example.admin.R
+import com.example.admin.ViewModel.AssociateVehicleViewModel
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -67,5 +68,10 @@ class HomeScreen : AppCompatActivity() {
         val value  = Intent(this, Add_Part::class.java)
         startActivity(value)
 
+    }
+
+    fun AssocaiteVehicle(view: View) {
+        val value  = Intent(this, AssociateVehicle::class.java)
+        startActivity(value)
     }
 }

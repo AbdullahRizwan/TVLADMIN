@@ -72,6 +72,7 @@
         android:drawableRight="@drawable/ic_forwardarrowasset_14"
         android:gravity="center"
         android:text="Associate Part"
+        android:onClick="AssocaiteVehicle"
         android:textColor="@color/gray" />
 
     <Button
@@ -84,6 +85,7 @@
         android:drawableRight="@drawable/ic_forwardarrowasset_14"
         android:gravity="center"
         android:text="Monitor Complaints"
+
 
         android:textColor="@color/gray" />
 

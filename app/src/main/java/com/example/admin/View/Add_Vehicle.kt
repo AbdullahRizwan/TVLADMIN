@@ -58,6 +58,7 @@ class Add_Vehicle : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             nextButton.isEnabled = viewModel.vehicleForm.value!!.isValid
         })
+        
         model.doAfterTextChanged{
             viewModel.formDataChanged(model.text.toString(), year.text.toString())
         }
