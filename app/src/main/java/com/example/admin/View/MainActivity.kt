@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
     fun SignIn(view: View){
         val email = findViewById<EditText>(R.id.email);
         val pass = findViewById<EditText>(R.id.pass);
-        if(email.text.contains("@") && pass.text.length >8){
+        if(email.text.contains("@") && pass.text.length >=8){
             loginViewModel.login(email.text.toString(), pass.text.toString())
             Log.d ("Main ",this.loginViewModel.data.value?.uid.toString())
             loginViewModel.data.observe(this, Observer {

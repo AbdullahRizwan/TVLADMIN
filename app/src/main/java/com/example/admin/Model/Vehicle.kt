@@ -1,6 +1,8 @@
 package com.example.admin.Model
 
-class Vehicle {
+import java.io.Serializable
+
+class Vehicle : Serializable{
     var vehicleId:String ?= ""
     var model:String ?= ""
     var make:String ?= ""

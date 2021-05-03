@@ -1,6 +1,8 @@
 package com.example.admin.View
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
@@ -25,7 +27,7 @@ class AssociateVehicle : AppCompatActivity(), VehicleCustomAdapter.OnClickListen
         viewModel = AssociateVehicleViewModel()
         viewModel.data.observe(this@AssociateVehicle, Observer {
 
-            recyclerViewAdapter.setData(viewModel.data,this.applicationContext,this)
+            recyclerViewAdapter.setData(viewModel.data, this.applicationContext, this)
             recyclerView.layoutManager = LinearLayoutManager(this)
             recyclerView.adapter = recyclerViewAdapter
         })
@@ -44,6 +46,9 @@ class AssociateVehicle : AppCompatActivity(), VehicleCustomAdapter.OnClickListen
     }
 
     override fun onVehicleClick(vehicle: Vehicle) {
-        Log.d("Poistion", ""+ vehicle.make)
+        Log.d("Poistion", "" + vehicle.make)
+        val i = Intent(applicationContext, Associate_Part::class.java)
+        i.putExtra("Vehicle",vehicle )
+        startActivity(i)
     }
 }
