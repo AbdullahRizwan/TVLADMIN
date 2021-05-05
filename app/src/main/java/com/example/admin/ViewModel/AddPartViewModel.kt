@@ -29,10 +29,10 @@ class AddPartViewModel : ViewModel() {
         )
         db.collection("Part").add(data).addOnSuccessListener { documentReference ->
             _result.value = Result.Success<String>(documentReference.toString())
-            Log.d("YEAR", documentReference.toString())
+            Log.d("Result", documentReference.toString())
         }.addOnFailureListener { e ->
             _result.value = Result.Error(e)
-            Log.d("YEAR", e.toString())
+            Log.d("Result", e.toString())
         }
     }
 

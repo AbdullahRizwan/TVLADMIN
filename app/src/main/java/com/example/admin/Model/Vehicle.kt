@@ -7,7 +7,7 @@ class Vehicle : Serializable{
     var model:String ?= ""
     var make:String ?= ""
     var year:String ?= ""
-    val parts : Array<Part?> ?=null
+    val parts : ArrayList<Part?> ?= ArrayList()
 
     constructor(model: String?, make: String?, year: String?) {
         this.model = model
