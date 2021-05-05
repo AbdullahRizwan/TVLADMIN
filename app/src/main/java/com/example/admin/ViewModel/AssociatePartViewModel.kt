@@ -1,30 +1,31 @@
 package com.example.admin.ViewModel
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.admin.Model.Part
 import com.example.admin.Model.Vehicle
 import com.google.firebase.firestore.FirebaseFirestore
 
-
-class AssociateVehicleViewModel : ViewModel()  {
-    var data = MutableLiveData<ArrayList<Vehicle>>()
+class AssociatePartViewModel {
+    var data = MutableLiveData<ArrayList<Part>>()
 
     init {
         getData()
     }
 
     private fun getData() {
-        var list = ArrayList<Vehicle>()
+        var list = ArrayList<Part>()
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        var col = db.collection("Vehicle").get()
+        var col = db.collection("Part").get()
             .addOnSuccessListener { result ->
                 for (document in result) {
                     var a = document.data
                     list.add(
-                        Vehicle(
-                            a["model"] as String?,
-                            a["make"] as String?,
-                            a["year"] as String?
+                        Part(
+                            document.id,
+                            a["name"] as String?,
+                            a["type"] as String?,
+                            a["life"] as String?,
+                            a["description"] as String?
                         )
                     )
 

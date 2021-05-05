@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
@@ -48,7 +49,11 @@ class AssociateVehicle : AppCompatActivity(), VehicleCustomAdapter.OnClickListen
     override fun onVehicleClick(vehicle: Vehicle) {
         Log.d("Poistion", "" + vehicle.make)
         val i = Intent(applicationContext, Associate_Part::class.java)
-        i.putExtra("Vehicle",vehicle )
+        i.putExtra("vehicle",vehicle )
         startActivity(i)
+    }
+
+    fun Back(view: View) {
+        finish()
     }
 }

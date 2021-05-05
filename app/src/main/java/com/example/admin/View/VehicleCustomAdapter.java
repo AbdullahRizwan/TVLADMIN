@@ -128,4 +128,3 @@ public class VehicleCustomAdapter extends RecyclerView.Adapter<VehicleCustomAdap
     }
 
 }
-
