@@ -74,4 +74,13 @@ class HomeScreen : AppCompatActivity() {
         val value  = Intent(this, AssociateVehicle::class.java)
         startActivity(value)
     }
+
+    fun monitorComplaints(view: View) {
+        val value  = Intent(this, MonitorComplaints::class.java)
+        startActivity(value)
+    }
+    fun transferOwnership(view: View) {
+        val value  = Intent(this, TransferOwnership::class.java)
+        startActivity(value)
+    }
 }
