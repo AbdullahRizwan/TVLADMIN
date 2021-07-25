@@ -85,8 +85,7 @@
         android:drawableRight="@drawable/ic_forwardarrowasset_14"
         android:gravity="center"
         android:text="Monitor Complaints"
-
-
+        android:onClick="monitorComplaints"
         android:textColor="@color/gray" />
 
 
@@ -99,7 +98,8 @@
         android:drawableLeft="@drawable/ic_ownership_iconasset_15"
         android:drawableRight="@drawable/ic_forwardarrowasset_14"
         android:gravity="center"
-        android:text="Transfer OwnweShip"
+        android:text="Transfer OwnerShip"
+        android:onClick="transferOwnership"
         android:textColor="@color/gray" />
     <ProgressBar
         android:layout_width="wrap_content"

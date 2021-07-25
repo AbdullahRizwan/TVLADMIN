@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Admin">
+        <activity android:name=".View.MonitorComplaints"></activity>
+        <activity android:name=".View.TransferOwnership" />
         <activity android:name=".View.Associate_Part" />
         <activity android:name=".View.AssociateVehicle" />
         <activity android:name=".View.Add_Part" />
